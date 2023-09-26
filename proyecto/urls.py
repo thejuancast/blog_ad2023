@@ -19,4 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')), # Es para que incluya urls de la app blog
+    path('cuentas/', include('django.contrib.auth.urls')), # Se incluye eso debido a que es módulo ya predefinido para la autenticación
+    path('cuentas/', include('cuentas.urls')),
 ]
