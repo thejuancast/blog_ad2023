@@ -1,0 +1,1 @@
+En procfile se guardaran todo lo de wsgi

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic', # NUEVA 27/09/2023
     'blog.apps.BlogConfig',
     'cuentas.apps.CuentasConfig',
 ]
@@ -49,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # USO PARA ARCHIVOS ESTATICOS EN APP WEB´s (INVESTIGAR)
+    'whitenoise.middleware.WhiteNoiseMiddleware', # NUEVA 27/09/2023
 ]
 
 ROOT_URLCONF = 'proyecto.urls'
@@ -120,8 +123,11 @@ USE_TZ = True
 
 STATIC_URL = 'estaticos/'
 STATICFILES_DIRS = [BASE_DIR / 'estaticos']
-STATIC_ROOT = BASE_DIR / 'archivosestaticos'
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATIC_ROOT = BASE_DIR / 'archivosestaticos' # NUEVA 26/09/2023
+# MODO DE DESARROLLO
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' # NUEVA TERMINAL 26/09/2023
+# MENOS RECURSOS
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # NUEVA 27/09/2023
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

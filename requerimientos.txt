@@ -1,0 +1,7 @@
+asgiref==3.7.2
+Django==4.0.10
+gunicorn==20.1.0
+Pygments @ file:///private/tmp/pygments-20230806-5921-1vpw7cv/Pygments-2.16.1
+six==1.16.0
+sqlparse==0.4.4
+whitenoise==5.3.0
